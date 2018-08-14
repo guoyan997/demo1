@@ -1,0 +1,11 @@
+@import "../assets/scss/rem";
+.mainContent {
+  width: px2rem(400);
+  height: px2vh(400);
+  background: #fff000;
+  .title-div {
+    width: px2rem(200);
+    height: px2vh(200);
+    background: #ff00ee;
+  }
+}
