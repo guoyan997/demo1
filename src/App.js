@@ -7,7 +7,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            wendu: 0
+            wendu: 0,
+            aaa: ''
         }
     }
     componentDidMount () {
@@ -15,6 +16,13 @@ class App extends Component {
             data => {
                 this.setState(
                     {wendu: data.data.wendu}
+                )
+            }
+        )
+        request(' https://easy-mock.com/mock/5b73876946d8b26cf3b14f1e/example/mytest',{method: 'GET'}).then(
+            data => {
+                this.setState(
+                    {aaa: data.data.aaa}
                 )
             }
         )
@@ -26,6 +34,7 @@ class App extends Component {
                 <header className="App-header">
                     <h1>测试路由</h1>
                     <h1>北京温度是：{this.state.wendu}</h1>
+                    <h1>从在线的easy-mock获取值：{this.state.aaa}</h1>
                 </header>
                 <MainRouter></MainRouter>
             </div>

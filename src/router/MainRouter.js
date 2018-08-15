@@ -7,6 +7,7 @@ import Home from '../pages/Home'
 import NotFind from '../pages/NotFind'
 import Detail from '../pages/Detail'
 import EchartsTest from '../pages/EchartsTest'
+import ReduxPage from '../pages/ReduxPage'
 const Main = () => (
     <main>
         <Switch>
@@ -14,6 +15,7 @@ const Main = () => (
             <Route path='/home' component={Home}/>
             <Route path='/Detail/:name' component={Detail}/>
             <Route path='/bar' component={EchartsTest}/>
+            <Route path='/redux' component={ReduxPage}/>
             <Route path='/*' component={NotFind}/>
         </Switch>
     </main>
