@@ -11,22 +11,21 @@ class App extends Component {
             aaa: ''
         }
     }
+    async getBeiJingTemp () {
+        const { data } = await request('/api/weather_mini?city=北京',{method: 'GET'})
+        this.setState(
+            {wendu: data.wendu}
+        )
+    }
+    async getMockData () {
+        const { data } = await  request(' https://easy-mock.com/mock/5b73876946d8b26cf3b14f1e/example/mytest',{method: 'GET'})
+        this.setState(
+            {aaa: data.aaa}
+        )
+    }
     componentDidMount () {
-        request('/api/weather_mini?city=北京',{method: 'GET'}).then(
-            data => {
-                this.setState(
-                    {wendu: data.data.wendu}
-                )
-            }
-        )
-        request(' https://easy-mock.com/mock/5b73876946d8b26cf3b14f1e/example/mytest',{method: 'GET'}).then(
-            data => {
-                this.setState(
-                    {aaa: data.data.aaa}
-                )
-            }
-        )
-
+        this.getBeiJingTemp()
+        this.getMockData()
     }
     render() {
         return (

@@ -13,7 +13,7 @@ export const CommonChart = (ComposedComponent) => class extends Component {
         chartData: []
     }
     const
-    chartInstance = undefined
+ chartInstance = undefined
     //当组件的props变化时，调用
     shouldComponentUpdate(nextProps, nextState) {
         if (this.props.chartData !== nextProps.chartData) {

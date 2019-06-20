@@ -7,7 +7,9 @@ import './ClockComp.scss'
 class ClockComp extends Component {
     constructor(props) {
         super(props);
-        this.state = {date: (new Date())};
+        this.state = {
+            date: (new Date()),
+            list: ['列表1', '列表2', '列表3']};
         this.clickClock = this.clickClock.bind(this)
     }
 
@@ -38,6 +40,13 @@ class ClockComp extends Component {
             <div className="mainContent" onClick={this.clickClock}>
                 <div className="title-div">the now time is :</div>
                 <h1>{this.state.date.toLocaleTimeString()}</h1>
+                <ul>
+                    {
+                        this.state.list.map((item,index)=>{
+                            return <li key={index}>{item}</li>
+                        })
+                    }
+                </ul>
             </div>
         )
     }

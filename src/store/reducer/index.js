@@ -5,9 +5,11 @@ function counter(state = { count: 0 }, action) {
     const count = state.count
     switch (action.type) {
         case 'increase':
-            return { count: count + 1 }
+            return { count: count + action.data }
         case 'decrease':
-            return { count: count - 1 }
+            return { count: count - action.data }
+        case 'GET_WEATHER_SUCCESS':
+            return { count: parseInt(action.payload.wendu) }
         default:
             return state
     }

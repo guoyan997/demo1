@@ -13,11 +13,21 @@ function checkStatus(response) {
 function parseJSON(response) {
     return response.json();
 }
+// export default function request(url, options) {
+//     let opt = options||{};
+//     return fetch(url, {credentials: 'include', ...opt})
+//         .then(checkStatus)
+//         .then(parseJSON)
+//         .then((data) => ( data ))
+//         .catch((err) => ( err ));
+// }
 export default function request(url, options) {
     let opt = options||{};
-    return fetch(url, {credentials: 'include', ...opt})
-        .then(checkStatus)
-        .then(parseJSON)
-        .then((data) => ( data ))
-        .catch((err) => ( err ));
+    return new Promise((resolve, reject) => {
+        fetch(url, {credentials: 'include', ...opt})
+            .then(checkStatus)
+            .then(parseJSON)
+            .then(data => resolve(data))
+            .catch(err => ( reject(err) ))
+    })
 }
